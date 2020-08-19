@@ -10,7 +10,7 @@ class AuthorsController < ApplicationController
   def create
     @author = Author.create(author_params)
 
-    redirect_to author_path(@author)
+    @author.save ? redirect_to(author_path(@author)) : render(:new)
   end
 
   private
